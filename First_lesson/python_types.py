@@ -9,7 +9,9 @@ def test_lists_count(a,b):
 
 def test_lists_append(a):
     # type: (list) -> list
-    return a.append('Лапка')
+    a.append('Лапка')
+   # b = len(a)
+    return a
 
 
 def test_strings_concat(a,b,c):

@@ -8,10 +8,11 @@ def test_lists_count(a,b):
 
 
 def test_lists_append(a):
-    # type: (list) -> list
+    # type: (list) -> bool
+    c = len(a)
     a.append('Лапка')
-   # b = len(a)
-    return a
+    b = len(a)
+    return c < b
 
 
 def test_strings_concat(a,b,c):
@@ -19,7 +20,7 @@ def test_strings_concat(a,b,c):
     return f"{a}{b}{c}"
 
 
-def test_strings_len(a):
+def test_strings_len(a: object) -> object:
     # type: (string) -> int
     return len(a)
 
@@ -41,7 +42,8 @@ def test_sets(set, other_set):
 
 
 def test_add_sets(b):
-    return b.add(1)
+    b.add(1)
+    return b
 
 
 if __name__ == "__main__":
@@ -51,7 +53,15 @@ if __name__ == "__main__":
     test_lists_count(a=[4, 5, 'i'], b=[10, "f", "f", "9"])
     test_strings_len("мармозетка")
     test_dictionaries_get(product={"name": "iPhone Xs","stock": 24,"price": 65432.1}, key_product="stock")
-    test_list_dicts(stock=[{'name': 'iPhone Xs Plus', 'stock': 24, 'price': 65432.1, 'recommended': ['Samsung Galaxy S10', 'iPhone Xs']}, {'name': 'Samsung Galaxy S10', 'stock': 8, 'price': 50000.0, 'discount': 5000}, {'name': 'Xiaomi Mi8', 'stock': 42, 'price': 38000.5}], number=0)
+    test_list_dicts(stock=[{'name': 'iPhone Xs Plus',
+                            'stock': 24,
+                            'price': 65432.1,
+                            'recommended': ['Samsung Galaxy S10', 'iPhone Xs']},
+                           {'name': 'Samsung Galaxy S10', 'stock': 8, 'price': 50000.0,'discount': 5000},
+                           {'name': 'Xiaomi Mi8',
+                            'stock': 42,
+                            'price': 38000.5}],
+                    number=0)
     test_tuples(tuple=(1, 3, 4, "fish", 4))
     test_sets(set={'son', 'daddy', 'mum'}, other_set={'sugar', 'lemon', 'ice'})
     test_add_sets(b={'sugar', 'lemon', 'ice'})

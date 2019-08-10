@@ -4,7 +4,7 @@ import requests
 def random_dog_json(url):
     r = requests.get(url)
     r = r.json()
-    r = r.keys()
+    r = r.get("status")
     return r
     #print(r.json())
 

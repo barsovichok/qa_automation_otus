@@ -1,0 +1,11 @@
+# Default ignored files
+/workspace.xml
+.idea\
+.idea
+.pyc
+myvenv
+../.idea/
+__pycache__/
+myvenv/
+venv/
+venv

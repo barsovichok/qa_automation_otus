@@ -5,6 +5,9 @@ from python_types import dictionaries_get, sets, add_set, sum_integers, lists_co
 
 class TestPythonExamples:
 
+    def test_start_fixtures(self, module_fixture, session_fixture):
+        return module_fixture, session_fixture
+
     def test_integers(self, sum_integers_data):
         """
         Test checks Python data type "integer"

@@ -1,6 +1,6 @@
 def sum_integers(a, b):
     # type: (integer, integer) -> integer
-    return a + b
+    return a+b
 
 def lists_count(a,b):
     # type: (list, list) -> list

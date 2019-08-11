@@ -7,3 +7,20 @@ myvenv
 __pycache__/
 myvenv/
 
+# Default ignored files
+/workspace.xml
+.idea
+.pyc
+myvenv
+../.idea/
+__pycache__/
+myvenv/
+venv/
+venv
+.xml
+/modules.xml
+.gitignore
+/inspectionProfiles
+/profiles_settings.xml
+/misc.xml
+/vcs.xml

@@ -25,13 +25,19 @@ def session_fixture(request):
 def random_dog_url():
     return 'https://dog.ceo/api/breeds/image/random'
 
+
 @pytest.fixture(params = ["akita", "bulldog", "collie", "dalmatian", "dingo", "mastiff", "mix"])
 def dog_breed(request):
     return request.param
 
 
-@pytest.fixture(scope="function", params=[("hound", 10), ("dalmatian", 5), ("mix", 3), ("dingo", 6)])
+@pytest.fixture(params = [("akita", 1), ("bulldog", 4), ("collie", 5), ("dalmatian", 5), ("dingo", 9), ("mastiff", 1), ("mix", 1)])
 def dog_breed_image(request):
+    return request.param
+
+
+@pytest.fixture(scope="function", params=[(1, 10), (2, 5), (6, 3), (12, 6)])
+def get_posts_by_user_id_data(request):
     return request.param
 
 
@@ -61,6 +67,10 @@ def get_breweries_by_tag_data():
 @pytest.fixture()
 def get_breweries_by_state_data():
     return "https://api.openbrewerydb.org/breweries", "new_york"
+
+# @pytest.mark.parametrize("user_id, user_title", [(1, 2),(3, 5), (5, 9)])
+# class TestClassParametrized:
+#     def get_posts_by_user_id_data
 
 # @pytest.fixture(params=[1, 2, 3, 4, 5, 6, 7])
 # def fixture_with_params(request):

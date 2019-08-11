@@ -13,11 +13,14 @@ class TestDogCEOAPI:
     def test_random_dog_headers(self, random_dog_url):
         assert random_dog_headers(random_dog_url) == 'application/json'
 
-#Параметриованные тесты - переписать!
-
     def test_random_dog_list_sub_breeds_status(self, dog_breed):
         assert random_dog_list_sub_breeds_status(dog_breed) == "success"
 
     def test_random_dog_breeds_image(self, dog_breed_image):
-        assert random_dog_breeds_image(*dog_breed_image)[-4:] == '.jpg'
+        random_dog_breeds_image_1 = (random_dog_breeds_image(*dog_breed_image)[-4:]).lower()
+        if random_dog_breeds_image_1 == '.jpeg':
+            random_dog_breeds_image_1 = '.jpg'
+            assert random_dog_breeds_image_1 == '.jpg'
+        else:
+            assert (random_dog_breeds_image(*dog_breed_image)[-4:]).lower() == '.jpg'
 

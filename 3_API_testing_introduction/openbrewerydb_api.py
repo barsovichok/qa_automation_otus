@@ -1,15 +1,15 @@
 import requests
 
 #параметризовать тест
-def get_brewery_by_number(url, number):
-    r = requests.get(f"{url}{number}").json()
+def get_brewery_by_number(number):
+    r = requests.get(f"https://api.openbrewerydb.org/breweries/{number}").json()
     return r["id"]
     #print(str(r["id"]) + " get_brewery_by_number - парам тест")
 
 #параметризовать тест
-def get_breweries_by_page_per_page(url, page, per_page):
-    params = {"page":page, "per_page":per_page}
-    r = requests.get(url, params=params).json()
+def get_breweries_per_page(per_page):
+    params = {"page":1, "per_page":per_page}
+    r = requests.get("https://api.openbrewerydb.org/breweries", params=params).json()
     return len(r)
     #print(str(len(r)) + " get_breweries_by_page_per_pag - парам тест")
 
@@ -20,7 +20,7 @@ def get_breweries_by_state(url, state):
     #print(str(r[0].get("id")) + " get_breweries_by_state") #возвращает 4581
 
 
-def get_breweries_by_tag(url,tag):
+def get_breweries_by_tag(url, tag):
     params = {"by_tag": tag}
     r = requests.get(url, params=params).json()
     return len(r)
@@ -35,8 +35,8 @@ def get_breweries_by_name(url, name):
 
 
 
-get_brewery_by_number('https://api.openbrewerydb.org/breweries/', 44)
-get_breweries_by_page_per_page("https://api.openbrewerydb.org/breweries", 2, 10)
+get_brewery_by_number(44)
+get_breweries_per_page(10)
 get_breweries_by_name("https://api.openbrewerydb.org/breweries", "cooper")
 get_breweries_by_tag("https://api.openbrewerydb.org/breweries", "patio")
 get_breweries_by_state("https://api.openbrewerydb.org/breweries", "new_york")
